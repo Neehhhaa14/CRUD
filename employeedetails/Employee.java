@@ -1,42 +1,49 @@
 package employeedetails;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+//Creating Entity class
 @Entity
+//Creating Table
 @Table(name = "employeedetails")
 public class Employee {
+
+	// Primary key field
 	@Id
-    Long EMPLOYEE_ID;
+	Long EMPLOYEE_ID;
 
-
+	// Column for first name
 	@Column(name = "FIRST_NAME")
 	String FIRST_NAME;
 
+	// Column for last name
 	@Column(name = "LAST_NAME")
 	String LAST_NAME;
 
+	// Column for email
 	@Column(name = "EMAIL")
 	String EMAIL;
 
+	// Column for phone number
 	@Column(name = "PHONE_NUMBER")
 	String PHONE_NUMBER;
 
+	// Column for hire date
 	@Column(name = "HIRE_DATE")
 	String HIRE_DATE;
 
+	// Column for job ID
 	@Column(name = "JOB_ID")
 	String JOB_ID;
 
+	// Column for salary
 	@Column(name = "SALARY")
 	String SALARY;
+
+	// Getters and Setters
 
 	public Long getEMPLOYEE_ID() {
 		return EMPLOYEE_ID;
@@ -102,6 +109,7 @@ public class Employee {
 		SALARY = sALARY;
 	}
 
+    //parameterized constructor
 	public Employee(Long eMPLOYEE_ID, String fIRST_NAME, String lAST_NAME, String eMAIL, String pHONE_NUMBER,
 			String hIRE_DATE, String jOB_ID, String sALARY) {
 		super();
@@ -115,6 +123,7 @@ public class Employee {
 		SALARY = sALARY;
 	}
 
+   //Default Constructor
 	public Employee() {
 		super();
 	}

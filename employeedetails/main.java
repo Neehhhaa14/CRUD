@@ -1,31 +1,29 @@
 package employeedetails;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.List;
-
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class main {
-	static FileDataIngestionServiceImpl obj=new FileDataIngestionServiceImpl();
+	//Creating Object for FileDataIngestionServiceImpl class to access the methods and properties.
+	static FileDataIngestionServiceImpl obj = new FileDataIngestionServiceImpl();
+	static Logger logger = LoggerFactory.getLogger(main.class);
+	    
+	    public static void main(String[] args) {
+	        // Path to the CSV file
+	        String csvFilePath = "C:\\Users\\NehaKuSingh\\Desktop\\SampleData (version 1).xlsb.csv";
+	        
+	        // Loading the file data
+	        obj.loadFileData(csvFilePath);
+	        logger.info("The CSV file path was loaded");
+	        
+	        // Updating the employee name
+	        obj.updateEmployeeName(198L, "neha");
+	        logger.info("The employee name was updated");
+	        
+	        // Deleting an employee row
+	        obj.deleteEmployee(201L);
+	        logger.info("The employee row was deleted");
+	    }
+	}
 
-	public static void main(String[] args) {
-		String csvFilePath = "C:\\Users\\NehaKuSingh\\Desktop\\SampleData (version 1).xlsb.csv";
-     obj.loadFileData(csvFilePath);
-     System.out.println("loaded");
-     obj.updateEmployeeName(198L, "neha");
-     System.out.println("updated");
-     obj.deleteEmployee(201L);
-     System.out.println("deleted");
-     
-}
-}
-	
+
