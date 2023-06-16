@@ -17,11 +17,11 @@ public class main {
 	        logger.info("The CSV file path was loaded");
 	        
 	        // Updating the employee name
-	        obj.updateEmployeeName(198L, "neha");
+	        obj.updateEmployeeName(100L, "neha");
 	        logger.info("The employee name was updated");
 	        
 	        // Deleting an employee row
-	        obj.deleteEmployee(201L);
+	        obj.deleteEmployee(102L);
 	        logger.info("The employee row was deleted");
 	    }
 	}

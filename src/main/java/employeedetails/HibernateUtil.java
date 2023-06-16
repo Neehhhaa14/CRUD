@@ -1,7 +1,5 @@
 package employeedetails;
 
-
-
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -10,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class HibernateUtil {
-     static Logger logger = LoggerFactory.getLogger(HibernateUtil.class);
+	static Logger logger = LoggerFactory.getLogger(HibernateUtil.class);
 
 	// Private static final field for SessionFactory
 	private static final SessionFactory sessionFactory = buildSessionFactory();
@@ -30,7 +28,7 @@ public class HibernateUtil {
 			// Building and returning the SessionFactory
 			return configuration.buildSessionFactory(serviceRegistry);
 		} catch (Throwable ex) {
-            logger.error("Initial SessionFactory creation failed: " + ex);
+			logger.error("Initial SessionFactory creation failed: " + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
@@ -44,4 +42,6 @@ public class HibernateUtil {
 	public static void shutdown() {
 		getSessionFactory().close();
 	}
+
+	
 }

@@ -14,7 +14,7 @@ import org.hibernate.cfg.Configuration;
 import org.slf4j.*;
 
 public class FileDataIngestionServiceImpl implements FileDataIngestionService {
- static Logger logger = LoggerFactory.getLogger(FileDataIngestionServiceImpl.class);
+	static Logger logger = LoggerFactory.getLogger(FileDataIngestionServiceImpl.class);
 
 /// Method for loading and reading the CSV file
 	@Override
@@ -38,7 +38,7 @@ public class FileDataIngestionServiceImpl implements FileDataIngestionService {
 			while ((line = lineReader.readLine()) != null) {
 				String[] columns = line.split(",");
 
-				// Creating an Employee object 
+				// Creating an Employee object
 				Employee employee = new Employee();
 				employee.setEMPLOYEE_ID(Long.valueOf(columns[0]));
 				employee.setFIRST_NAME(columns[1]);
@@ -58,7 +58,7 @@ public class FileDataIngestionServiceImpl implements FileDataIngestionService {
 			session.close();
 			factory.close();
 			logger.info("Data loading is completed");
-			
+
 		} catch (FileNotFoundException e) {
 			logger.error("Exception occurred while loading the file");
 		} catch (IOException e) {
@@ -96,7 +96,7 @@ public class FileDataIngestionServiceImpl implements FileDataIngestionService {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
-			// Retrieving the Employee object by EmployeeID
+			// Retrieving EmployeeID from Employee class
 			Employee employee = session.get(Employee.class, EMPLOYEE_ID);
 
 			if (employee != null) {
@@ -109,4 +109,10 @@ public class FileDataIngestionServiceImpl implements FileDataIngestionService {
 			logger.error("Exception occurred while deleting the Employee");
 		}
 	}
+
+	public void setSessionFactory(SessionFactory sessionFactoryMock) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

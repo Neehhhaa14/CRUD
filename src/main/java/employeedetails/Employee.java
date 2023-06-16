@@ -49,7 +49,7 @@ public class Employee {
 		return EMPLOYEE_ID;
 	}
 
-	public void setEMPLOYEE_ID(Long eMPLOYEE_ID) {
+	public void setEMPLOYEE_ID( Long eMPLOYEE_ID) {
 		EMPLOYEE_ID = eMPLOYEE_ID;
 	}
 
